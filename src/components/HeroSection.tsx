@@ -11,7 +11,10 @@ const HeroSection = () => {
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center text-white max-w-5xl">
-        
+        <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+          Skip the Queue,<br />
+          <span className="text-food-orange">Savor the Moment</span>
+        </h1>
         
         <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto text-white/90 leading-relaxed">
           Pre-order your favorite campus meals and collect them at your convenience. 
