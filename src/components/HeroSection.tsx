@@ -1,28 +1,17 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-food.jpg";
 import { Clock, Ticket, Users, Shield } from "lucide-react";
-
 const HeroSection = () => {
-  return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Delicious campus food spread"
-          className="w-full h-full object-cover"
-        />
+        <img src={heroImage} alt="Delicious campus food spread" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
       </div>
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center text-white max-w-5xl">
-        <h1 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">
-          Skip the Line,<br />
-          <span className="bg-gradient-primary bg-clip-text text-transparent">
-            Savor the Time
-          </span>
-        </h1>
+        
         
         <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto text-white/90 leading-relaxed">
           Pre-order your favorite campus meals and collect them at your convenience. 
@@ -58,8 +47,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
