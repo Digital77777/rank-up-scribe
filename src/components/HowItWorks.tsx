@@ -31,13 +31,13 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section id="how-it-works" className="py-24 bg-background">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             How It Works
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Getting your favorite campus meal is easier than ever with our simple 4-step process
           </p>
         </div>
@@ -50,20 +50,20 @@ const HowItWorks = () => {
                 <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-primary to-transparent z-0" />
               )}
               
-              <Card className="relative z-10 p-6 text-center bg-gradient-card border-0 shadow-soft hover:shadow-warm transition-all duration-300 hover:-translate-y-2">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-primary flex items-center justify-center">
-                  <step.icon className="w-8 h-8 text-primary-foreground" />
+              <Card className="relative z-10 p-8 text-center bg-gradient-card border border-border shadow-crisp hover:shadow-elevation transition-all duration-300 hover:-translate-y-1">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-primary flex items-center justify-center shadow-soft">
+                  <step.icon className="w-10 h-10 text-primary-foreground" />
                 </div>
                 
-                <div className="absolute -top-3 -right-3 w-8 h-8 bg-food-red text-white rounded-full flex items-center justify-center text-sm font-bold">
+                <div className="absolute -top-4 -right-4 w-10 h-10 bg-food-red text-white rounded-full flex items-center justify-center text-sm font-bold shadow-crisp">
                   {step.step}
                 </div>
                 
-                <h3 className="text-xl font-semibold mb-3 text-foreground">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">
                   {step.title}
                 </h3>
                 
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>
               </Card>

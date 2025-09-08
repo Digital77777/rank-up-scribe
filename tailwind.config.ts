@@ -72,6 +72,8 @@ export default {
       boxShadow: {
         'warm': 'var(--shadow-warm)',
         'soft': 'var(--shadow-soft)',
+        'crisp': 'var(--shadow-crisp)',
+        'elevation': 'var(--shadow-elevation)',
       },
       transitionTimingFunction: {
         'smooth': 'var(--transition-smooth)',

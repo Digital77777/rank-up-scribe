@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0% 98%;
     --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
@@ -17,39 +17,42 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 20 100% 55%;
+    --primary: 14 88% 55%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 25 95% 53%;
+    --secondary: 21 89% 52%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 25 5% 95%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 15 100% 96%;
-    --accent-foreground: 20 100% 55%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 240 5.9% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 25 5% 92%;
-    --input: 25 5% 92%;
-    --ring: 20 100% 55%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 14 88% 55%;
 
     /* Custom food-themed colors */
-    --food-orange: 20 100% 55%;
-    --food-red: 0 84% 60%;
-    --food-warm: 25 95% 53%;
-    --food-cream: 35 100% 95%;
+    --food-orange: 24 95% 53%;
+    --food-red: 356 75% 53%;
+    --food-warm: 33 100% 50%;
+    --food-cream: 47 100% 96%;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(20 100% 55%), hsl(25 95% 53%));
-    --gradient-hero: linear-gradient(135deg, hsl(20 100% 55% / 0.1), hsl(25 95% 53% / 0.05));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(25 5% 98%));
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(14 88% 55%), hsl(21 89% 52%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 40% 98%), hsl(214.3 31.8% 91.4%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --gradient-accent: linear-gradient(135deg, hsl(14 88% 55% / 0.1), hsl(21 89% 52% / 0.05));
     
-    /* Shadows */
-    --shadow-warm: 0 10px 30px -5px hsl(20 100% 55% / 0.15);
-    --shadow-soft: 0 4px 20px -2px hsl(240 10% 3.9% / 0.1);
+    /* Professional shadows */
+    --shadow-warm: 0 20px 40px -12px hsl(14 88% 55% / 0.25);
+    --shadow-soft: 0 8px 32px -8px hsl(220 43% 11% / 0.1);
+    --shadow-crisp: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-elevation: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
     
     /* Animation */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -119,10 +122,31 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
   
   html {
     scroll-behavior: smooth;
+  }
+  
+  /* Professional typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-4xl lg:text-6xl;
+    line-height: 1.1;
+  }
+  
+  h2 {
+    @apply text-3xl lg:text-4xl;
+    line-height: 1.2;
+  }
+  
+  h3 {
+    @apply text-xl lg:text-2xl;
+    line-height: 1.3;
   }
   
   /* Custom scrollbar */

@@ -67,16 +67,16 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-20 bg-gradient-hero">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section id="features" className="py-24 bg-gradient-hero">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Everything You Need for
             <span className="block bg-gradient-primary bg-clip-text text-transparent">
               Seamless Food Ordering
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Our comprehensive platform streamlines the entire food ordering experience 
             for students, staff, and store managers alike.
           </p>
@@ -86,17 +86,17 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <Card 
               key={index}
-              className="p-6 bg-gradient-card border-0 shadow-soft hover:shadow-warm transition-all duration-300 hover:-translate-y-1"
+              className="p-6 bg-gradient-card border border-border shadow-crisp hover:shadow-elevation transition-all duration-300 hover:-translate-y-1"
             >
               <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-lg bg-gradient-primary">
+                <div className="p-3 rounded-xl bg-gradient-primary shadow-soft">
                   <feature.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold mb-2 text-foreground">
+                  <h3 className="text-lg font-semibold mb-3 text-foreground">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground leading-relaxed text-sm">
                     {feature.description}
                   </p>
                 </div>
