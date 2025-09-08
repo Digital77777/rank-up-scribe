@@ -9,32 +9,50 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 3.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 20 100% 55%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 25 95% 53%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 25 5% 95%;
+    --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 15 100% 96%;
+    --accent-foreground: 20 100% 55%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 25 5% 92%;
+    --input: 25 5% 92%;
+    --ring: 20 100% 55%;
+
+    /* Custom food-themed colors */
+    --food-orange: 20 100% 55%;
+    --food-red: 0 84% 60%;
+    --food-warm: 25 95% 53%;
+    --food-cream: 35 100% 95%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(20 100% 55%), hsl(25 95% 53%));
+    --gradient-hero: linear-gradient(135deg, hsl(20 100% 55% / 0.1), hsl(25 95% 53% / 0.05));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(25 5% 98%));
+    
+    /* Shadows */
+    --shadow-warm: 0 10px 30px -5px hsl(20 100% 55% / 0.15);
+    --shadow-soft: 0 4px 20px -2px hsl(240 10% 3.9% / 0.1);
+    
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
 
@@ -101,5 +119,27 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
   }
 }
