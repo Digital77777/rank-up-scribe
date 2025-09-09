@@ -1,7 +1,20 @@
 import { Button } from "@/components/ui/button";
-import { Menu, User, ShoppingCart } from "lucide-react";
+import { Menu, User, ShoppingCart, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleAuthClick = () => {
+    if (user) {
+      signOut();
+    } else {
+      navigate('/auth');
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 py-4">
@@ -34,19 +47,32 @@ const Header = () => {
           
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon" className="relative">
-              <ShoppingCart className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-primary-foreground rounded-full text-xs flex items-center justify-center">
-                0
-              </span>
-            </Button>
-            <Button variant="outline">
-              <User className="w-4 h-4 mr-2" />
-              Login
-            </Button>
-            <Button>
-              Sign Up
-            </Button>
+            {user && (
+              <Button variant="ghost" size="icon" className="relative">
+                <ShoppingCart className="w-5 h-5" />
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-primary-foreground rounded-full text-xs flex items-center justify-center">
+                  0
+                </span>
+              </Button>
+            )}
+            
+            {user ? (
+              <div className="flex items-center space-x-2">
+                <span className="hidden md:inline-block text-sm text-muted-foreground">
+                  {user.email}
+                </span>
+                <Button variant="outline" onClick={handleAuthClick}>
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Sign Out
+                </Button>
+              </div>
+            ) : (
+              <Button variant="outline" onClick={handleAuthClick}>
+                <User className="w-4 h-4 mr-2" />
+                Sign In
+              </Button>
+            )}
+            
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="w-5 h-5" />
             </Button>
