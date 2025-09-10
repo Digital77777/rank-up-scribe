@@ -48,9 +48,12 @@ const Header = () => {
             <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors font-medium">
               How It Works
             </a>
-            <a href="#features" className="text-foreground hover:text-primary transition-colors font-medium">
-              Features
-            </a>
+            <button 
+              onClick={() => navigate('/orders')}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Orders
+            </button>
           </nav>
           
           {/* Actions */}
