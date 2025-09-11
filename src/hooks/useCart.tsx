@@ -1,10 +1,7 @@
 import { useState, useContext, createContext, ReactNode } from 'react';
-import { FoodItem } from './useStores';
+import { FoodItem, CartItem as ICartItem } from '@/types';
 
-export interface CartItem extends FoodItem {
-  quantity: number;
-  subtotal: number;
-}
+export interface CartItem extends ICartItem {}
 
 interface CartContextType {
   items: CartItem[];
@@ -19,7 +16,7 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-export const CartProvider = ({ children }: { children: ReactNode }) => {
+export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [storeId, setStoreId] = useState<string | null>(null);
 
@@ -106,12 +103,12 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </CartContext.Provider>
   );
-};
+}
 
-export const useCart = () => {
+export function useCart() {
   const context = useContext(CartContext);
   if (context === undefined) {
     throw new Error('useCart must be used within a CartProvider');
   }
   return context;
-};
+}
