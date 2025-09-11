@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, User, ShoppingCart, LogOut } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu, User, ShoppingCart, LogOut, Home, Store, Clock, HelpCircle } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useCart } from "@/hooks/useCart";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +10,7 @@ const Header = () => {
   const { user, signOut } = useAuth();
   const { itemCount } = useCart();
   const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleAuthClick = () => {
     if (user) {
@@ -91,9 +94,123 @@ const Header = () => {
               </Button>
             )}
             
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="w-5 h-5" />
-            </Button>
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="w-5 h-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px]">
+                <div className="flex flex-col space-y-4 mt-6">
+                  <div className="flex items-center space-x-2 mb-6">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
+                      <span className="text-xl font-bold text-primary-foreground">F</span>
+                    </div>
+                    <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                      Foodie-U
+                    </span>
+                  </div>
+                  
+                  <Button 
+                    variant="ghost" 
+                    className="justify-start text-left"
+                    onClick={() => {
+                      navigate('/');
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    <Home className="w-4 h-4 mr-3" />
+                    Home
+                  </Button>
+                  
+                  <Button 
+                    variant="ghost" 
+                    className="justify-start text-left"
+                    onClick={() => {
+                      navigate('/stores');
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    <Store className="w-4 h-4 mr-3" />
+                    Stores
+                  </Button>
+                  
+                  <Button 
+                    variant="ghost" 
+                    className="justify-start text-left"
+                    onClick={() => {
+                      navigate('/orders');
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    <Clock className="w-4 h-4 mr-3" />
+                    Orders
+                  </Button>
+                  
+                  <Button 
+                    variant="ghost" 
+                    className="justify-start text-left"
+                    onClick={() => {
+                      const element = document.getElementById('how-it-works');
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    <HelpCircle className="w-4 h-4 mr-3" />
+                    How It Works
+                  </Button>
+                  
+                  {user && (
+                    <Button 
+                      variant="ghost" 
+                      className="justify-start text-left"
+                      onClick={() => {
+                        navigate('/cart');
+                        setMobileMenuOpen(false);
+                      }}
+                    >
+                      <ShoppingCart className="w-4 h-4 mr-3" />
+                      Cart {itemCount > 0 && `(${itemCount})`}
+                    </Button>
+                  )}
+                  
+                  <div className="border-t pt-4 mt-6">
+                    {user ? (
+                      <div className="space-y-4">
+                        <div className="text-sm text-muted-foreground px-3">
+                          {user.email}
+                        </div>
+                        <Button 
+                          variant="outline" 
+                          className="w-full justify-start"
+                          onClick={() => {
+                            handleAuthClick();
+                            setMobileMenuOpen(false);
+                          }}
+                        >
+                          <LogOut className="w-4 h-4 mr-3" />
+                          Sign Out
+                        </Button>
+                      </div>
+                    ) : (
+                      <Button 
+                        variant="outline" 
+                        className="w-full justify-start"
+                        onClick={() => {
+                          handleAuthClick();
+                          setMobileMenuOpen(false);
+                        }}
+                      >
+                        <User className="w-4 h-4 mr-3" />
+                        Sign In
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>

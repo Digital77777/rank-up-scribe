@@ -24,7 +24,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [storeId, setStoreId] = useState<string | null>(null);
 
   const addItem = (item: FoodItem, quantity = 1) => {
-    // If cart is empty or contains items from same store, proceed
     if (items.length === 0 || storeId === item.store_id) {
       setStoreId(item.store_id);
       
@@ -50,7 +49,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         }];
       });
     } else {
-      // Different store - would need confirmation dialog in real app
       throw new Error('Cannot add items from different stores to cart');
     }
   };
